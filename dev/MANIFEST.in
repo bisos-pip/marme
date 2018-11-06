@@ -9,5 +9,8 @@ include README.rst
 # Include the data files
 recursive-include unisos/marme-base *
 
+# Include the data files
+recursive-include unisos/marme-config *
+
 # The line below is needed when data_files are specified in setup.py
 #recursive-include data *

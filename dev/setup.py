@@ -17,7 +17,7 @@ def longDescription():
 
 
 #__version__ = get_version('unisos/icm/__init__.py')
-__version__ = '0.20'
+__version__ = '0.23'
 
 
 requires = [
@@ -25,6 +25,7 @@ requires = [
     'unisos.icm',
     'unisos.common',
     'unisos.x822Msg',
+    'bisos.currents',
 ]
 
 #print('Setting up under python version %s' % sys.version)
@@ -42,6 +43,12 @@ scripts = [
     "bin/marmeTrackingIcm.py",
 ]
 
+#
+# Data files are specified in ./MANIFEST.in as:
+# recursive-include unisos/marme-base *
+# recursive-include unisos/marme-config *
+#
+    
 data_files = [
 ]
 

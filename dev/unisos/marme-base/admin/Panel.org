@@ -4,7 +4,7 @@
 **  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]]
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:this-node "basic"
-*  This File :: *= /bisos/vc/bxRepos/bisos-pip/marme/dev/unisos/marme-base/admin/foreignSo-deploy.org =*
+*  This File :: *= /bisos/vcAuth/git/bxRepos/auth/bisos-pip/marme/dev/unisos/marme-base/admin/Panel.org =*
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:see-related
 *  [[elisp:(org-cycle)][|#Bash:|]] (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]

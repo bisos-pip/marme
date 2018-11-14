@@ -1845,8 +1845,12 @@ class inMailAcctParsGet(icm.Cmnd):
         if not self.cmndArgsValidate(effectiveArgsList, cmndArgsSpecDict, outcome=cmndOutcome):
             return cmndOutcome
 ####+END:
-        parTypes = self.cmndArgsGet("0&2", cmndArgsSpecDict, effectiveArgsList)
-        
+
+        if interactive:
+            parTypes = self.cmndArgsGet("0&2", cmndArgsSpecDict, effectiveArgsList)
+        else:
+            parTypes = effectiveArgsList
+            
         if parTypes:
             if parTypes[0] == "all":
                     cmndArgsSpec = cmndArgsSpecDict.argPositionFind("0&2")

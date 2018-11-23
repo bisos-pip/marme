@@ -369,13 +369,13 @@ class examples(icm.Cmnd):
         # ICMs PKG Information
         #
 
-        icmsPkgInfoBaseDir = marmePkgThis.icmsPkgBase_dir()
-
-        print icmsPkgInfoBaseDir
+        icmsPkgInfoBaseDir = marmePkgThis.pkgBase_configDir()
+        icmsPkgModuleBaseDir = marmePkgThis.pkgBase_baseDir()        
 
         icmsPkgLib.examples_pkgInfoParsFull(
             icmsPkgNameSpecification(),
             icmsPkgInfoBaseDir=icmsPkgInfoBaseDir,
+            icmsPkgModuleBaseDir=icmsPkgModuleBaseDir,            
             icmsPkgControlBaseDir=icmsPkgControlBaseDirDefault(),
             icmsPkgRunBaseDir=icmsPkgRunBaseDirDefault(),
         )

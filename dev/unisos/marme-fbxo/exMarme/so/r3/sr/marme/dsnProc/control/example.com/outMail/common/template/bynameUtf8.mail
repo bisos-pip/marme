@@ -4,8 +4,8 @@ Cc: "Hiring Manager <hiringmanager@example.com>",
     "HR Person <hrperson@example.com>"
 Subject: Job Offer 
 Date: Thu, 18 May 2017 19:43:29 -0700
-BX-Send-WithBaseDir: /de/bx/nne/mcm0/Sync/dsnProc.rel/control/outMail/fastrackhr/fp
-ZBX-Send-WithAcctName: sa-20000
+BX-Send-WithBaseDir: /de/bx/nne/mcm0/Sync/dsnProc.rel/control/outMail/example.com/fp
+ZBX-Send-WithAcctName: example.com
 
 Body Of The Message.
 

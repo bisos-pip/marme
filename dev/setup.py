@@ -17,7 +17,7 @@ def longDescription():
 
 
 #__version__ = get_version('unisos/icm/__init__.py')
-__version__ = '0.23'
+__version__ = '0.24'
 
 
 requires = [
@@ -41,6 +41,7 @@ scripts = [
     "bin/inMailRetrieve.py",
     "bin/marmeRuns.py",
     "bin/marmeTrackingIcm.py",
+    "bin/fbxoMarmeSetup.sh",    
 ]
 
 #

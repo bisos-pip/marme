@@ -434,7 +434,7 @@ class examples(icm.Cmnd):
 
 ####+BEGIN: bx:icm:python:cmnd:classHead :cmndName "maildirApplyToMsg" :comment "" :parsMand "" :parsOpt "bxoId sr controlProfile inMailAcct inMbox" :argsMin "1" :argsMax "1000" :asFunc "" :interactiveP ""
 """
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || ICM-Cmnd       :: /maildirApplyToMsg/ parsMand= parsOpt=bxoId sr controlProfile inMailAcct inMbox argsMin=1 argsMax=1000 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  ICM-Cmnd       :: /maildirApplyToMsg/ parsMand= parsOpt=bxoId sr controlProfile inMailAcct inMbox argsMin=1 argsMax=1000 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
 """
 class maildirApplyToMsg(icm.Cmnd):
     cmndParamsMandatory = [ ]
@@ -504,7 +504,7 @@ class maildirApplyToMsg(icm.Cmnd):
                     continue                # The message is malformed. Just leave it.
             
                 try:
-                    eval(msgProc + '(inMailDir, mbox, key, msg)')
+                    eval(msgProc + '(bxoId, sr, inMailDir, mbox, key, msg)')
                 except Exception as e:
                     icm.EH_critical_exception(e)
                     icm.EH_problem_info("Invalid Action: {msgProc}"
@@ -556,10 +556,12 @@ class maildirApplyToMsg(icm.Cmnd):
 
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def msgDisect(
-        maildir,
-        mbox,
-        key,
-        inMsg,
+    bxoId,
+    sr,
+    maildir,
+    mbox,
+    key,
+    inMsg,
 ):
     """ """
     for part in inMsg.walk():
@@ -573,10 +575,12 @@ def msgDisect(
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def dsnReportLong(
-        maildir,        
-        mbox,
-        key,
-        inMsg,
+    bxoId,
+    sr,
+    maildir,        
+    mbox,
+    key,
+    inMsg,
 ):
     """ """
     tempFailedRecipients, permFailedRecipients = flufl.bounce.all_failures(inMsg)
@@ -609,6 +613,8 @@ def dsnReportLong(
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def dsnTestSendToCoRecipients(
+        bxoId,
+        sr,
         maildir,        
         mbox,
         key,
@@ -618,6 +624,8 @@ def dsnTestSendToCoRecipients(
 ** inMsg is analyzed to see if it contains a bounce. based on that it is catgorized as one of the following:
 """
     dsnProcessAndRefileWithGivenActions(
+        bxoId,
+        sr,
         maildir,        
         mbox,
         key,
@@ -637,6 +645,8 @@ def dsnTestSendToCoRecipients(
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def dsnProcessAndRefile(
+    bxoId,
+    sr,    
     maildir,        
     mbox,
     key,
@@ -646,6 +656,8 @@ def dsnProcessAndRefile(
 ** inMsg is analyzed to see if it contains a bounce. based on that it is catgorized as one of the following:
 """
     dsnProcessAndRefileWithGivenActions(
+        bxoId,
+        sr,
         maildir,        
         mbox,
         key,
@@ -663,6 +675,8 @@ def dsnProcessAndRefile(
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def dsnProcessAndRefileWithGivenActions(
+        bxoId,
+        sr,
         maildir,        
         mbox,
         key,
@@ -742,6 +756,8 @@ def dsnProcessAndRefileWithGivenActions(
         elif  runMode == 'fullRun':
             if action_ndrNoCoRecipients:
                 action_ndrNoCoRecipients(
+                    bxoId,
+                    sr,
                     inMsg,
                     failedMsg,
                     tempFailedRecipients,
@@ -762,6 +778,8 @@ def dsnProcessAndRefileWithGivenActions(
         elif runMode == 'runDebug':
             if action_ndrWithCoRecipients:
                 action_ndrWithCoRecipients(
+                    bxoId,
+                    sr,
                     inMsg,
                     failedMsg,
                     tempFailedRecipients,
@@ -772,6 +790,8 @@ def dsnProcessAndRefileWithGivenActions(
         elif  runMode == 'fullRun':
             if action_ndrWithCoRecipients:
                 action_ndrWithCoRecipients(
+                    bxoId,
+                    sr,
                     inMsg,
                     failedMsg,
                     tempFailedRecipients,
@@ -1127,12 +1147,14 @@ def msgMoveToFolder(
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def msgSend_test_permanentNdrToCoRecipients(
-    inMsg,
-    failedMsg,
-    tempFailedRecipients,
-    permFailedRecipients,
-    coRecipients,
-    dsnType,
+        bxoId,
+        sr,
+        inMsg,
+        failedMsg,
+        tempFailedRecipients,
+        permFailedRecipients,
+        coRecipients,
+        dsnType,
 ):
     """ Given a nonDeliveryReportMsg, We focus on the failedMsg
     """
@@ -1209,11 +1231,13 @@ This is a machine generated email and is purely informational.
     if msgOut.sendingMethodSet(msg, sendingMethod).isProblematic():
         return icm.EH_badLastOutcome()
 
-    if not marmeSendLib.bx822Set_sendWithEnabledAcct(msg, sendingMethod):
+    if not marmeSendLib.bx822Set_sendWithEnabledAcct(bxoId, sr, msg, sendingMethod):
         return icm.EH_problem_info("")
 
     cmndOutcome = marmeSendLib.sendCompleteMessage().cmnd(
         interactive=False,
+        bxoId=bxoId,
+        sr=sr,
         msg=msg,
     )
 

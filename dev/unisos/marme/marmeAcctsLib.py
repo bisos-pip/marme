@@ -598,6 +598,7 @@ def enabledMailBoxObtain(
 """
 *  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-anyOrNone :: /controlProfileBaseDirGet/ retType=bool argsList=(controlProfile bxoId=None sr=None)  [[elisp:(org-cycle)][| ]]
 """
+@icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def controlProfileBaseDirGet(
     controlProfile,
     bxoId=None,
@@ -622,6 +623,7 @@ def controlProfileBaseDirGet(
 """
 *  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-anyOrNone :: /outMailAcctDirGet/ retType=bool argsList=(controlProfile outMailAcct bxoId=None sr=None)  [[elisp:(org-cycle)][| ]]
 """
+@icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def outMailAcctDirGet(
     controlProfile,
     outMailAcct,

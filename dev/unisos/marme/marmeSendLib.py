@@ -198,22 +198,21 @@ This module is part of BISOS and its primary documentation is in  http://www.by-
 """
 ####+END:
 
+
+####+BEGIN: bx:icm:python:cmnd:classHead :cmndName "sendCompleteMessage" :comment "" :parsMand "bxoId sr inFile" :parsOpt "" :argsMin "0" :argsMax "0" :asFunc "msg" :interactiveP ""
 """
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Class-IIF    ::  sendCompleteMessage    [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  ICM-Cmnd       :: /sendCompleteMessage/ parsMand=bxoId sr inFile parsOpt= argsMin=0 argsMax=0 asFunc=msg interactive=  [[elisp:(org-cycle)][| ]]
 """
 class sendCompleteMessage(icm.Cmnd):
-    """
-** Submit a message using inFile =purely=. 
-"""
-    
-    cmndParamsMandatory = ['inFile']
-    cmndParamsOptional = []        
+    cmndParamsMandatory = [ 'bxoId', 'sr', 'inFile', ]
+    cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-####+BEGIN: bx:dblock:python:icm:cmnd:parsValidate :par "inFile" :asFunc "msg"
     @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
         interactive=False,        # Can also be called non-interactively
+        bxoId=None,         # or Cmnd-Input
+        sr=None,         # or Cmnd-Input
         inFile=None,         # or Cmnd-Input
         msg=None,         # asFunc when interactive==False
     ):
@@ -222,12 +221,14 @@ class sendCompleteMessage(icm.Cmnd):
             if not self.cmndLineValidate(outcome=cmndOutcome):
                 return cmndOutcome
 
-        callParamsDict = {'inFile': inFile, }
+        callParamsDict = {'bxoId': bxoId, 'sr': sr, 'inFile': inFile, }
         if not icm.cmndCallParamsValidate(callParamsDict, interactive, outcome=cmndOutcome):
             return cmndOutcome
+        bxoId = callParamsDict['bxoId']
+        sr = callParamsDict['sr']
         inFile = callParamsDict['inFile']
+
 ####+END:
-        
         G = icm.IcmGlobalContext()
 
         if not msg:
@@ -240,16 +241,20 @@ class sendCompleteMessage(icm.Cmnd):
         icm.LOG_here(msgOut.strLogMessage(
             "Msg As Input:", msg,))
 
-        print G.icmRunArgsGet().runMode
+        icm.LOG_here(G.icmRunArgsGet().runMode)
 
         outcome = msgOut.sendingRunControlSet(msg, G.icmRunArgsGet().runMode)
         if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
-        
+
         bx822Set_setMandatoryFields(msg)
-        
-        outcome = bx822Get_sendingFieldsPipelineLoad(msg)
+
+        outcome = bx822Get_sendingFieldsPipelineLoad(
+            bxoId,
+            sr,
+            msg,
+        )
         if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
-        
+
         if outcome.results != "INCOMPLETE":
             icm.LOG_here("Complete Message Being Sent")
             return (
@@ -266,10 +271,30 @@ class sendCompleteMessage(icm.Cmnd):
 
         return msgOut.sendBasedOnHeadersInfo(msg)
 
+        # return cmndOutcome.set(
+        #     opError=icm.OpError.Success,
+        #     opResults=None,
+        # )
+    
+
+####+BEGIN: bx:icm:python:method :methodName "cmndDocStr" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList ""
+    """
+**  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Method-anyOrNone :: /cmndDocStr/ retType=bool argsList=nil deco=default  [[elisp:(org-cycle)][| ]]
+"""
+    @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmndDocStr(self):
+####+END:        
+        return """
+***** TODO [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Place holder for this commands doc string.
+"""
+    
+
 """
 *  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func         ::  bx822Set_sendWithEnabledAcct    [[elisp:(org-cycle)][| ]]
 """
 def bx822Set_sendWithEnabledAcct(
+        bxoId,
+        sr,
         msg,
         sendingMethod,
 ):
@@ -280,9 +305,15 @@ def bx822Set_sendWithEnabledAcct(
         return True
     elif sendingMethod == msgOut.SendingMethod.submit:
         if not 'BX-Send-WithControlProfile' in msg:
-            msg['BX-Send-WithControlProfile'] = marmeAcctsLib.enabledControlProfileObtain()
+            msg['BX-Send-WithControlProfile'] = marmeAcctsLib.enabledControlProfileObtain(
+                bxoId=bxoId,
+                sr=sr,
+            )
         if not 'BX-Send-WithAcctName' in msg:
-            msg['BX-Send-WithAcctName'] = marmeAcctsLib.enabledInMailAcctObtain()
+            msg['BX-Send-WithAcctName'] = marmeAcctsLib.enabledInMailAcctObtain(
+                bxoId=bxoId,
+                sr=sr,
+            )
         return True
     else:
         return False
@@ -306,11 +337,13 @@ def bx822Set_setMandatoryFields(
     if not 'User-Agent' in msg:
         msg['User-Agent'] = "Marme/VersionNu"
 
-        
 """
 *  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func         ::  bx822Get_sendingFieldsPipelineLoad    [[elisp:(org-cycle)][| ]]
 """
+@icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def bx822Get_sendingFieldsPipelineLoad(
+    bxoId,
+    sr,
     msg,
 ):
     """
@@ -319,9 +352,11 @@ def bx822Get_sendingFieldsPipelineLoad(
     opOutcome = icm.OpOutcome()
     if 'BX-Send-WithAcctName' in msg:
         controlProfile = msg['BX-Send-WithControlProfile']
-        outMailAcct = msg['BX-Send-WithAcctName']        
+        outMailAcct = msg['BX-Send-WithAcctName']
         return (
             msgSendingPipelineLoadFromAcct(
+                bxoId,
+                sr,
                 msg,
                 controlProfile,
                 outMailAcct,
@@ -339,8 +374,11 @@ def bx822Get_sendingFieldsPipelineLoad(
 
 """
 *  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func         ::  msgSendingPipelineLoadFromAcct    [[elisp:(org-cycle)][| ]]
-"""    
+"""
+@icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def msgSendingPipelineLoadFromAcct(
+        bxoId,
+        sr,
         msg,
         controlProfile,
         outMailAcct,
@@ -348,7 +386,12 @@ def msgSendingPipelineLoadFromAcct(
     """
 ** Just call with obtained base for acct.
     """
-    acctBaseDir = marmeAcctsLib.outMailAcctDirGet(controlProfile, outMailAcct)
+    acctBaseDir = marmeAcctsLib.outMailAcctDirGet(
+        controlProfile,
+        outMailAcct,
+        bxoId=bxoId,
+        sr=sr,
+    )
     return (
         msgSendingPipelineLoadFromAcctBaseDir(
             msg,
@@ -358,6 +401,7 @@ def msgSendingPipelineLoadFromAcct(
 """
 *  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func         ::  msgSendingPipelineLoadFromAcctBaseDir    [[elisp:(org-cycle)][| ]]
 """
+@icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def msgSendingPipelineLoadFromAcctBaseDir(
         msg,
         acctBaseDir,

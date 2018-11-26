@@ -260,7 +260,7 @@ def g_argsExtraSpecify(
         parDataType=None,
         # ../control/outMail/common/template/bynameUtf8.mail
         parDefault=os.path.join(
-            marmeAcctsLib.outMailCommonDirGet(marmeAcctsLib.enabledControlProfileObtain()),
+            marmeAcctsLib.outMailCommonDirGet(marmeAcctsLib.enabledControlProfileObtain(curGet_bxoId(), curGet_sr())),
             "template/bynameUtf8.mail"
         ),            
         parChoices=["someFile", "UserInput"],
@@ -341,19 +341,22 @@ class examples(icm.Cmnd):
 **  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Examples   ::  Default Mail From Complete File [[elisp:(org-cycle)][| ]]
 """
 
-        enabledControlProfile = marmeAcctsLib.enabledControlProfileObtain()
-        enabledOutMailAcct = marmeAcctsLib.enabledOutMailAcctObtain()
+        enabledControlProfile = marmeAcctsLib.enabledControlProfileObtain(curGet_bxoId(), curGet_sr())
+        enabledOutMailAcct = marmeAcctsLib.enabledOutMailAcctObtain(curGet_bxoId(), curGet_sr())
+        
+        #enabledControlProfile = marmeAcctsLib.enabledControlProfileObtain()
+        #enabledOutMailAcct = marmeAcctsLib.enabledOutMailAcctObtain()
         
         icm.cmndExampleMenuChapter("""*Mail From Complete File -- Default ControlProfile={controlProfile} Acct={mailAcct}*""".format(
-                controlProfile=marmeAcctsLib.enabledControlProfileObtain(), mailAcct=enabledOutMailAcct,))
+                controlProfile=enabledControlProfile, mailAcct=enabledOutMailAcct,))
 
         cmndName = "sendCompleteMessage" ; cmndArgs = "" ;
 
         icm.cmndExampleMenuSection("""*Mail File fromValid/toValid -- Default ControlProfile={controlProfile} Acct={mailAcct}*""".format(
-                controlProfile=marmeAcctsLib.enabledControlProfileObtain(), mailAcct=marmeAcctsLib.enabledOutMailAcctObtain()))
+                controlProfile=enabledControlProfile, mailAcct=enabledOutMailAcct))
 
         inFileExample = '''{fileName}'''.format(
-            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(enabledControlProfile),
+            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(curGet_bxoId(), curGet_sr(), enabledControlProfile),
                                   "template/plain/fromValid/toValid/default.mail"))
 
         cps = collections.OrderedDict() ; cps['inFile'] = inFileExample
@@ -369,10 +372,10 @@ class examples(icm.Cmnd):
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
 
         icm.cmndExampleMenuSection("""*Mail File fromValid/toBad -- Default ControlProfile={controlProfile} Acct={mailAcct}*""".format(
-                controlProfile=marmeAcctsLib.enabledControlProfileObtain(), mailAcct=marmeAcctsLib.enabledOutMailAcctObtain(),))
+                controlProfile=enabledControlProfile, mailAcct=enabledOutMailAcct,))
 
         inFileExample = '''{fileName}'''.format(
-            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(marmeAcctsLib.enabledControlProfileObtain()),
+            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(curGet_bxoId(), curGet_sr(), enabledControlProfile),
                                   "template/plain/fromValid/toBad/default.mail"))
 
         cps = collections.OrderedDict() ; cps['inFile'] = inFileExample
@@ -395,7 +398,7 @@ class examples(icm.Cmnd):
 
         inFileExample = '''{fileName}'''.format(
             fileName=os.path.join(
-                marmeAcctsLib.outMailCommonDirGet(enabledControlProfile),
+                marmeAcctsLib.outMailCommonDirGet(curGet_bxoId(), curGet_sr(), enabledControlProfile),
                 "template/bynameUtf8.mail"
             ))
 
@@ -505,6 +508,26 @@ class unitTest(icm.Cmnd):
 *** You can use this Cmnd for rapid prototyping and testing of newly developed functions.
 """
 
+
+
+####+BEGIN: bx:icm:python:func :funcName "curGet_bxoId" :funcType "anyOrNone" :retType "bool" :deco "" :argsList ""
+"""
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-anyOrNone :: /curGet_bxoId/ retType=bool argsList=nil  [[elisp:(org-cycle)][| ]]
+"""
+def curGet_bxoId():
+####+END:
+    return "mcm"
+
+
+####+BEGIN: bx:icm:python:func :funcName "curGet_sr" :funcType "anyOrNone" :retType "bool" :deco "" :argsList ""
+"""
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-anyOrNone :: /curGet_sr/ retType=bool argsList=nil  [[elisp:(org-cycle)][| ]]
+"""
+def curGet_sr():
+####+END:
+    return "marme/dsnProc"
+
+    
 
 
 """

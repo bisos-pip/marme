@@ -173,6 +173,22 @@ class icmOverview(icm.Cmnd):
         return(format(str(__doc__)+moduleDescription))
 ####+END:
 
+####+BEGIN: bx:icm:python:section :title "Common Module Support Facilities (BxoIdSr)"
+"""
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *Common Module Support Facilities (BxoIdSr)*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] 
+"""
+####+END:
+
+####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/update/sw/icm/py/curGetBxOSr.py"
+"""
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-BxoIdSr   :: /curGet_{bxoId,sr}/ retType=str argsList=nil  [[elisp:(org-cycle)][| ]]
+"""
+
+def curGet_bxoId(): return bxCurrentsConfig.bxoId_fpObtain(configBaseDir=None)
+def curGet_sr(): return bxCurrentsConfig.sr_fpObtain(configBaseDir=None)
+def cmndParsCurBxoSr(cps): cps['bxoId'] = curGet_bxoId(); cps['sr'] = curGet_sr()
+
+####+END:
 
         
 ####+BEGIN: bx:icm:python:section :title "= =Framework::= ICM Hooks ="
@@ -328,13 +344,13 @@ class examples(icm.Cmnd):
 
         bleep.examples_icmBasic()
 
-        """
-**  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Examples   ::  General Dev and Testing IIFs [[elisp:(org-cycle)][| ]]
-"""
-        icm.cmndExampleMenuChapter('*General Dev and Testing IIFs*')   
+#         """
+# **  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Examples   ::  General Dev and Testing IIFs [[elisp:(org-cycle)][| ]]
+# """
+#         icm.cmndExampleMenuChapter('*General Dev and Testing IIFs*')   
 
-        cmndName = "unitTest" ; cmndArgs = "" ; cps = collections.OrderedDict()        
-        icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
+#         cmndName = "unitTest" ; cmndArgs = "" ; cps = collections.OrderedDict()        
+#         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
 
         
         """
@@ -356,38 +372,55 @@ class examples(icm.Cmnd):
                 controlProfile=enabledControlProfile, mailAcct=enabledOutMailAcct))
 
         inFileExample = '''{fileName}'''.format(
-            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(curGet_bxoId(), curGet_sr(), enabledControlProfile),
-                                  "template/plain/fromValid/toValid/default.mail"))
+            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(
+                enabledControlProfile,
+                curGet_bxoId(),
+                curGet_sr(),
+                ),
+                "template/plain/fromValid/toValid/default.mail")
+            )
 
-        cps = collections.OrderedDict() ; cps['inFile'] = inFileExample
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['inFile'] = inFileExample
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
 
-        cps = collections.OrderedDict() ; cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
 
-        cps = collections.OrderedDict() ; cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, icmWrapper="echo", verbosity='little')
 
-        cps = collections.OrderedDict() ; cps['runMode'] = "dryRun" ; cps['inFile'] = inFileExample 
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['runMode'] = "dryRun" ; cps['inFile'] = inFileExample 
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
 
         icm.cmndExampleMenuSection("""*Mail File fromValid/toBad -- Default ControlProfile={controlProfile} Acct={mailAcct}*""".format(
                 controlProfile=enabledControlProfile, mailAcct=enabledOutMailAcct,))
 
         inFileExample = '''{fileName}'''.format(
-            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(curGet_bxoId(), curGet_sr(), enabledControlProfile),
-                                  "template/plain/fromValid/toBad/default.mail"))
+            fileName=os.path.join(marmeAcctsLib.outMailCommonDirGet(
+                enabledControlProfile,
+                curGet_bxoId(),
+                curGet_sr(),
+                ),
+                "template/plain/fromValid/toBad/default.mail"))
 
-        cps = collections.OrderedDict() ; cps['inFile'] = inFileExample
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['inFile'] = inFileExample
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
 
-        cps = collections.OrderedDict() ; cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
 
-        cps = collections.OrderedDict() ; cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['runMode'] = "runDebug" ; cps['inFile'] = inFileExample
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, icmWrapper="echo", verbosity='little')
 
-        cps = collections.OrderedDict() ; cps['runMode'] = "dryRun" ; cps['inFile'] = inFileExample 
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['runMode'] = "dryRun" ; cps['inFile'] = inFileExample 
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
         
         """
@@ -398,7 +431,11 @@ class examples(icm.Cmnd):
 
         inFileExample = '''{fileName}'''.format(
             fileName=os.path.join(
-                marmeAcctsLib.outMailCommonDirGet(curGet_bxoId(), curGet_sr(), enabledControlProfile),
+                marmeAcctsLib.outMailCommonDirGet(
+                    enabledControlProfile,
+                    curGet_bxoId(),
+                    curGet_sr(),
+                    ),
                 "template/bynameUtf8.mail"
             ))
 
@@ -452,62 +489,6 @@ class examples(icm.Cmnd):
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *ICM Commands*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] 
 """
 ####+END:
-
-####+BEGIN: bx:icm:python:cmnd:classHead :modPrefix "new" :cmndName "unitTest" :parsMand "" :parsOpt "" :argsMin "0" :argsMax "1" :asFunc "" :interactiveP ""
-"""
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || ICM-Cmnd       :: /unitTest/ parsMand= parsOpt= argsMin=0 argsMax=1 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
-"""
-class unitTest(icm.Cmnd):
-    cmndParamsMandatory = [ ]
-    cmndParamsOptional = [ ]
-    cmndArgsLen = {'Min': 0, 'Max': 1,}
-
-    @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-    def cmnd(self,
-        interactive=False,        # Can also be called non-interactively
-        argsList=None,         # or Args-Input
-    ):
-        cmndOutcome = self.getOpOutcome()
-        if interactive:
-            if not self.cmndLineValidate(outcome=cmndOutcome):
-                return cmndOutcome
-            effectiveArgsList = G.icmRunArgsGet().cmndArgs
-        else:
-            effectiveArgsList = argsList
-
-        callParamsDict = {}
-        if not icm.cmndCallParamsValidate(callParamsDict, interactive, outcome=cmndOutcome):
-            return cmndOutcome
-####+END:
-
-        myName=self.myName()
-        thisOutcome = icm.OpOutcome(invokerName=myName)
-
-        print G.icmInfo
-
-        for eachArg in effectiveArgsList:
-            icm.ANN_here("{}".format(eachArg))
-
-        print (icm.__file__)
-        print sys.path
-
-        import imp
-        print(imp.find_module('unisos/icm'))
-
-        @ucf.runOnceOnly
-        def echo(str):
-            print str
-            
-        echo("first")
-        echo("second")  # Should not run
-    
-        return thisOutcome
-    
-    def cmndDocStr(self): return """
-** Place holder for ICM's experimental or test code.  [[elisp:(org-cycle)][| ]]
-*** You can use this Cmnd for rapid prototyping and testing of newly developed functions.
-"""
-
 
 
 ####+BEGIN: bx:icm:python:func :funcName "curGet_bxoId" :funcType "anyOrNone" :retType "bool" :deco "" :argsList ""

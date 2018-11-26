@@ -237,7 +237,12 @@ class sendCompleteMessage(icm.Cmnd):
             else:
                 # Stdin then
                 msg = msgIn.getMsgFromStdin()
-
+        else:
+            # non-interactive call with msg
+            if not bxoId:
+                icm.EH_problem_usageError("")
+                return cmndOutcome
+            
         icm.LOG_here(msgOut.strLogMessage(
             "Msg As Input:", msg,))
 

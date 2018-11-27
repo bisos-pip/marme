@@ -41,7 +41,8 @@ scripts = [
     "bin/inMailRetrieve.py",
     "bin/marmeRuns.py",
     "bin/marmeTrackingIcm.py",
-    "bin/fbxoMarmeSetup.sh",    
+    "bin/fbxoMarmeSetup.sh",
+    "bin/marmeSendExample.py",    
 ]
 
 #

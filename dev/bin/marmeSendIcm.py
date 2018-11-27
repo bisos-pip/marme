@@ -80,10 +80,12 @@ from email import Encoders
 
 import collections
 
-from unisos import ucf
+#from unisos import ucf
 from unisos import icm
 
 from blee.icmPlayer import bleep
+
+from bisos.currents import bxCurrentsConfig
 
 from unisos.x822Msg import msgOut
 from unisos.x822Msg import msgIn
@@ -451,25 +453,42 @@ class examples(icm.Cmnd):
         
         icm.cmndExampleMenuChapter('*Basic Mail Sending*')
 
-        cmndName = "msgSend_basic" ; cmndArgs = "" ; cps = collections.OrderedDict()        
+        cmndName = "msgSend_basic" ; cmndArgs = ""
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)       
         cps['fromLine']="office@mohsen.1.banan.byname.net" ; cps['toLine']="test@mohsen.banan.1.byname.net"
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
 
-        cmndName = "msgSend_basic" ; cmndArgs = "" ; cps = collections.OrderedDict()
+        cmndName = "msgSend_basic" ; cmndArgs = ""
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)      
         cps['verbosity']="20" ; cps['runMode']="runDebug"        
         cps['fromLine']="office@mohsen.1.banan.byname.net" ; cps['toLine']="test@mohsen.banan.1.byname.net"
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
 
-        cmndName = "msgSend_basic" ; cmndArgs = "" ; cps = collections.OrderedDict()
+        cmndName = "msgSend_basic" ; cmndArgs = ""
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
         cps['verbosity']="20" ; cps['runMode']="dryRun"        
         cps['fromLine']="office@mohsen.1.banan.byname.net" ; cps['toLine']="test@mohsen.banan.1.byname.net"
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
         
 
-        cmndName = "msgSend_tracked" ; cmndArgs = "" ; cps = collections.OrderedDict()        
+        cmndName = "msgSend_tracked" ; cmndArgs = ""
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)       
         cps['fromLine']="office@mohsen.1.banan.byname.net" ; cps['toLine']="test@mohsen.banan.1.byname.net"
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
 
+        cmndName = "msgSend_tracked" ; cmndArgs = ""        
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['verbosity']="20" ; cps['runMode']="runDebug"        
+        cps['fromLine']="office@mohsen.1.banan.byname.net" ; cps['toLine']="test@mohsen.banan.1.byname.net"
+        icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
+
+        cmndName = "msgSend_tracked" ; cmndArgs = ""        
+        cps = collections.OrderedDict() ; cmndParsCurBxoSr(cps)
+        cps['verbosity']="20" ; cps['runMode']="dryRun"        
+        cps['fromLine']="office@mohsen.1.banan.byname.net" ; cps['toLine']="test@mohsen.banan.1.byname.net"
+        icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
+        
+        
         
         """
 **  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Examples   ::  From  marmeAcctsLib.py   [[elisp:(org-cycle)][| ]]
@@ -490,25 +509,6 @@ class examples(icm.Cmnd):
 """
 ####+END:
 
-
-####+BEGIN: bx:icm:python:func :funcName "curGet_bxoId" :funcType "anyOrNone" :retType "bool" :deco "" :argsList ""
-"""
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-anyOrNone :: /curGet_bxoId/ retType=bool argsList=nil  [[elisp:(org-cycle)][| ]]
-"""
-def curGet_bxoId():
-####+END:
-    return "mcm"
-
-
-####+BEGIN: bx:icm:python:func :funcName "curGet_sr" :funcType "anyOrNone" :retType "bool" :deco "" :argsList ""
-"""
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || Func-anyOrNone :: /curGet_sr/ retType=bool argsList=nil  [[elisp:(org-cycle)][| ]]
-"""
-def curGet_sr():
-####+END:
-    return "marme/dsnProc"
-
-    
 
 
 """
@@ -619,18 +619,20 @@ class sendFromPartialFileWithPars(icm.Cmnd):
 """
 
 
-####+BEGIN: bx:icm:python:cmnd:classHead :modPrefix "new" :cmndName "msgSend_basic" :comment "" :parsMand "fromLine toLine" :parsOpt "sendingMethod" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""
+####+BEGIN: bx:icm:python:cmnd:classHead :cmndName "msgSend_basic" :comment "" :parsMand "bxoId sr fromLine toLine" :parsOpt "sendingMethod" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""
 """
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || ICM-Cmnd       :: /msgSend_basic/ parsMand=fromLine toLine parsOpt=sendingMethod argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  ICM-Cmnd       :: /msgSend_basic/ parsMand=bxoId sr fromLine toLine parsOpt=sendingMethod argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
 """
 class msgSend_basic(icm.Cmnd):
-    cmndParamsMandatory = [ 'fromLine', 'toLine', ]
+    cmndParamsMandatory = [ 'bxoId', 'sr', 'fromLine', 'toLine', ]
     cmndParamsOptional = [ 'sendingMethod', ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
     @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
         interactive=False,        # Can also be called non-interactively
+        bxoId=None,         # or Cmnd-Input
+        sr=None,         # or Cmnd-Input
         fromLine=None,         # or Cmnd-Input
         toLine=None,         # or Cmnd-Input
         sendingMethod=None,         # or Cmnd-Input
@@ -640,12 +642,15 @@ class msgSend_basic(icm.Cmnd):
             if not self.cmndLineValidate(outcome=cmndOutcome):
                 return cmndOutcome
 
-        callParamsDict = {'fromLine': fromLine, 'toLine': toLine, 'sendingMethod': sendingMethod, }
+        callParamsDict = {'bxoId': bxoId, 'sr': sr, 'fromLine': fromLine, 'toLine': toLine, 'sendingMethod': sendingMethod, }
         if not icm.cmndCallParamsValidate(callParamsDict, interactive, outcome=cmndOutcome):
             return cmndOutcome
+        bxoId = callParamsDict['bxoId']
+        sr = callParamsDict['sr']
         fromLine = callParamsDict['fromLine']
         toLine = callParamsDict['toLine']
         sendingMethod = callParamsDict['sendingMethod']
+
 ####+END:
 
         if not sendingMethod:
@@ -691,28 +696,37 @@ Please find example of an attached file\n
         if msgOut.sendingMethodSet(msg, sendingMethod).isProblematic():
             return icm.EH_badLastOutcome()
             
-        if not marmeSendLib.bx822Set_sendWithEnabledAcct(msg, sendingMethod):
+        if not marmeSendLib.bx822Set_sendWithEnabledAcct(
+                msg=msg,
+                sendingMethod=sendingMethod,
+                bxoId=bxoId,
+                sr=sr,
+        ):
             return icm.EH_badOutcome(cmndOutcome)
 
         cmndOutcome = marmeSendLib.sendCompleteMessage().cmnd(
             interactive=False,
             msg=msg,
+            bxoId=bxoId,
+            sr=sr,
         )
         
         return cmndOutcome
 
-####+BEGIN: bx:icm:python:cmnd:classHead :modPrefix "new" :cmndName "msgSend_tracked" :comment "" :parsMand "fromLine toLine" :parsOpt "sendingMethod" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""    
+####+BEGIN: bx:icm:python:cmnd:classHead :cmndName "msgSend_tracked" :comment "" :parsMand "bxoId sr fromLine toLine" :parsOpt "sendingMethod" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""    
 """
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || ICM-Cmnd       :: /msgSend_tracked/ parsMand=fromLine toLine parsOpt=sendingMethod argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  ICM-Cmnd       :: /msgSend_tracked/ parsMand=bxoId sr fromLine toLine parsOpt=sendingMethod argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
 """
 class msgSend_tracked(icm.Cmnd):
-    cmndParamsMandatory = [ 'fromLine', 'toLine', ]
+    cmndParamsMandatory = [ 'bxoId', 'sr', 'fromLine', 'toLine', ]
     cmndParamsOptional = [ 'sendingMethod', ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
     @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
         interactive=False,        # Can also be called non-interactively
+        bxoId=None,         # or Cmnd-Input
+        sr=None,         # or Cmnd-Input
         fromLine=None,         # or Cmnd-Input
         toLine=None,         # or Cmnd-Input
         sendingMethod=None,         # or Cmnd-Input
@@ -722,12 +736,15 @@ class msgSend_tracked(icm.Cmnd):
             if not self.cmndLineValidate(outcome=cmndOutcome):
                 return cmndOutcome
 
-        callParamsDict = {'fromLine': fromLine, 'toLine': toLine, 'sendingMethod': sendingMethod, }
+        callParamsDict = {'bxoId': bxoId, 'sr': sr, 'fromLine': fromLine, 'toLine': toLine, 'sendingMethod': sendingMethod, }
         if not icm.cmndCallParamsValidate(callParamsDict, interactive, outcome=cmndOutcome):
             return cmndOutcome
+        bxoId = callParamsDict['bxoId']
+        sr = callParamsDict['sr']
         fromLine = callParamsDict['fromLine']
         toLine = callParamsDict['toLine']
         sendingMethod = callParamsDict['sendingMethod']
+
 ####+END:
         #G = icm.IcmGlobalContext()
 
@@ -760,8 +777,14 @@ to select the outgoing profile. The current settings are:
 This message is then submitted for sending with sendCompleteMessage().cmnd(msg)
 
             """.format(
-                controlProfile=marmeAcctsLib.enabledControlProfileObtain(),
-                mailAcct=marmeAcctsLib.enabledInMailAcctObtain()
+                controlProfile=marmeAcctsLib.enabledControlProfileObtain(
+                    curGet_bxoId(),
+                    curGet_sr(),
+                ),
+                mailAcct=marmeAcctsLib.enabledInMailAcctObtain(
+                    curGet_bxoId(),
+                    curGet_sr(),
+                )
             )
         )
 
@@ -831,13 +854,19 @@ This message is then submitted for sending with sendCompleteMessage().cmnd(msg)
         if msgOut.sendingMethodSet(msg, sendingMethod).isProblematic():
             return icm.EH_badLastOutcome()
             
-        if not marmeSendLib.bx822Set_sendWithEnabledAcct(msg, sendingMethod):
+        if not marmeSendLib.bx822Set_sendWithEnabledAcct(
+                msg=msg,
+                sendingMethod=sendingMethod,
+                bxoId=bxoId,
+                sr=sr,
+        ):
             return icm.EH_badOutcome(cmndOutcome)
 
         cmndOutcome = marmeSendLib.sendCompleteMessage().cmnd(
-            
             interactive=False,
             msg=msg,
+            bxoId=bxoId,
+            sr=sr,
         )
         
         return

@@ -29,6 +29,8 @@ from unisos.x822Msg import msgOut
 from unisos.marme import marmeAcctsLib
 from unisos.marme import marmeSendLib
 
+from unisos.marme import marmeTrackingLib
+
 def curGet_bxoId(): return "mcm"
 def curGet_sr(): return "marme/dsnProc"
 
@@ -36,25 +38,8 @@ fromLine="from@example.com"
 toLine="to@example.com"
 envelopeLine="envelope@example.com"
 
-def mailSendingExample(inArgv):
+def mailSendingExample():
 
-    #
-    # ICM Library Setup Begins
-    #
-    
-    def g_argsExtraSpecify(parser,): return None
-
-    icmRunArgs, icmArgsParser = icm.G_argsProc(inArgv,  g_argsExtraSpecify)
-
-    logControler = icm.LOG_Control()
-    logControler.loggerSet(icmRunArgs)
-
-    G = icm.IcmGlobalContext()
-    G.globalContextSet( icmRunArgs=icmRunArgs )
-
-    #
-    # ICM Library Setup Begins
-    #
 
     bxoId = curGet_bxoId()
     sr = curGet_sr()
@@ -171,18 +156,49 @@ This message is then submitted for sending with sendCompleteMessage().cmnd(msg)
     ):
         return icm.EH_badOutcome()
 
+    marmeTrackingLib.trackDelivery_injectBefore(
+        bxoId,
+        sr,
+        msg,
+    )
+
     cmndOutcome = marmeSendLib.sendCompleteMessage().cmnd(
         interactive=False,
         msg=msg,
         bxoId=bxoId,
         sr=sr,
     )
+
+    marmeTrackingLib.trackDelivery_injectAfter(
+        bxoId,
+        sr,
+        msg,
+    )
         
     return cmndOutcome
 
 
 def main():
-     mailSendingExample(sys.argv)
+    #
+    # ICM Library Setup Begins
+    #
+    
+    icmRunArgs, icmArgsParser = icm.G_argsProc(
+        arguments=sys.argv,
+        extraArgs=None,
+    )
+    
+    logControler = icm.LOG_Control()
+    logControler.loggerSet(icmRunArgs)
+
+    G = icm.IcmGlobalContext()
+    G.globalContextSet( icmRunArgs=icmRunArgs )
+
+    #
+    # ICM Library Setup Begins
+    #
+   
+    mailSendingExample()
 
      
 if __name__ == "__main__":

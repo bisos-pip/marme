@@ -767,7 +767,11 @@ def dsnProcessAndRefileWithGivenActions(
                 )
 
             msgMoveToFolder("envNdrNoCoRecip", maildir, mbox, key, inMsg,)
-            marmeTrackingLib.trackEnvPermNdr(inMsg)
+            marmeTrackingLib.trackDelivery_permNdr(
+                bxoId,
+                sr,
+                inMsg,
+            )
         else:
             icm.EH_critical_oops()
 
@@ -800,8 +804,11 @@ def dsnProcessAndRefileWithGivenActions(
                     dsnType,
                 )
             msgMoveToFolder("envNdrWithCoRecipNotified", maildir, mbox, key, inMsg,)            
-            marmeTrackingLib.trackSentCoRecipient(inMsg)
-
+            marmeTrackingLib.trackDelivery_coRecipientNotified(
+                bxoId,
+                sr,
+                inMsg,
+            )
         else:
             icm.EH_critical_oops()
 
@@ -811,6 +818,8 @@ def dsnProcessAndRefileWithGivenActions(
         elif runMode == 'runDebug':
             if action_tmpNonDeliveryReport:
                 action_tmpNonDeliveryReport(
+                    bxoId,
+                    sr,
                     inMsg,
                     failedMsg,
                     tempFailedRecipients,
@@ -821,6 +830,8 @@ def dsnProcessAndRefileWithGivenActions(
         elif  runMode == 'fullRun':
             if action_tmpNonDeliveryReport:
                 action_tmpNonDeliveryReport(
+                    bxoId,
+                    sr,
                     inMsg,
                     failedMsg,
                     tempFailedRecipients,
@@ -829,8 +840,11 @@ def dsnProcessAndRefileWithGivenActions(
                     dsnType,
                 )
             msgMoveToFolder("envTmpNdr", maildir, mbox, key, inMsg,)
-            marmeTrackingLib.trackEnvTmpNdr(inMsg)
-
+            marmeTrackingLib.trackDelivery_tmpNdr(
+                bxoId,
+                sr,
+                inMsg,
+            )
         else:
             icm.EH_critical_oops()
             

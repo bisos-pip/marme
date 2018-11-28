@@ -4,8 +4,17 @@ function echoErr { echo "E: $@" 1>&2; }
 function echoAnn { echo "A: $@" 1>&2; }
 function echoOut { echo "$@"; }
 
+function usage {
+    echoOut "USAGE:"
+    echoOut "$0 setup+prep+run"    
+    echoOut "$0 setup+prep"
+    echoOut "$0 setup"    
+}
+
+
 if [ $# -ne 1 ] ; then
     echoErr "Bad Nu Of Args -- Expected 1 -- Got $#"
+    usage    
     exit 1
 fi
 
@@ -14,7 +23,7 @@ configFile="$1"
 if [ -f "${configFile}" ] ; then
     source "${configFile}"
 else
-    echoErr "Missing COnfig File: ${configFile}"
+    echoErr "Missing Config File: ${configFile}"
     exit 1
 fi
 
@@ -45,65 +54,6 @@ if [ -z "${fbxoId}" ] ; then
 fi
 
 
-function platformInfoParsSet {
-    local here=$(pwd)
-    local foreignBxoBase=$(dirname ${here})
-
-    local currentUser=$(id -un)
-    local currentUserGroup=$(id -g -n ${currentUser})
-
-    if [ "$( type -t deactivate )" == "function" ] ; then
-	deactivate
-    fi
-
-    #
-    # System-wide bx-platformInfoManage.py is assumed to have been installed
-    #
-    if ! which bx-platformInfoManage.py > /dev/null ; then
-	echoErr "Missing bx-platformInfoManage.py"
-	return 1
-    fi
-    
-    local bisosUserName=$( bx-platformInfoManage.py  -i pkgInfoParsGet | grep bisosUserName | cut -d '=' -f 2 )
-    local bisosGroupName=$( bx-platformInfoManage.py  -i pkgInfoParsGet | grep bisosGroupName | cut -d '=' -f 2 )
-    
-    local rootDir_bisos=$( bx-platformInfoManage.py  -i pkgInfoParsGet | grep rootDir_bisos | cut -d '=' -f 2 )
-    local rootDir_bxo=$( bx-platformInfoManage.py  -i pkgInfoParsGet | grep rootDir_bxo | cut -d '=' -f 2 )
-    local rootDir_deRun=$( bx-platformInfoManage.py  -i pkgInfoParsGet | grep rootDir_deRun | cut -d '=' -f 2 )        
-
-    if [ "${currentUser}" != "${bisosUserName}" ] ; then
-	echoErr "currentUser=${currentUser} is not same as bisosUserName=${bisosUserName}"
-	return 1
-    fi
-
-    local bisosVirtEnvBase="${rootDir_bisos}/venv/${bisosVenvName}"
-
-
-    source ${bisosVirtEnvBase}/bin/activate
-
-    pip -V
-
-    #
-    # We set the virtenv's params to be same as system's
-    #
- 
-    bx-platformInfoManage.py --bisosUserName="${bisosUserName}"  -i pkgInfoParsSet
-    bx-platformInfoManage.py --bisosGroupName="${bisosGroupName}"  -i pkgInfoParsSet     
-
-    bx-platformInfoManage.py --rootDir_bisos="${rootDir_bisos}"  -i pkgInfoParsSet
-    bx-platformInfoManage.py --rootDir_bxo="${rootDir_bxo}"  -i pkgInfoParsSet
-    bx-platformInfoManage.py --rootDir_deRun="${rootDir_deRun}"  -i pkgInfoParsSet    
-
-    #
-    # $(pwd) is used to set --rootDir_foreignBxo
-    #
-    
-    bx-platformInfoManage.py --rootDir_foreignBxo="${foreignBxoBase}"  -i pkgInfoParsSet
-
-    echo "========= bx-platformInfoManage.py -i pkgInfoParsGet ========="
-    bx-platformInfoManage.py -i pkgInfoParsGet
-}
-
 
 function bxoSrCurrentsSet {
     bx-currentsManage.py --bxoId="${fbxoId}"  -i pkgInfoParsSet
@@ -126,6 +76,13 @@ function marmeAcctsParsSet {
 
     echo "========= marmeAcctsManage.py  --bxoId="${fbxoId}" --sr="${serviceRealization}" -i outMailAcctParsGet ========="
     marmeAcctsManage.py  --bxoId="${fbxoId}" --sr="${serviceRealization}" -i outMailAcctParsGet
+
+    echo "========= marmeAcctsManage.py  --bxoId="${fbxoId}" --sr="${serviceRealization}" -i bxoSrPkgInfoParsGet ========="
+    marmeAcctsManage.py  --bxoId="${fbxoId}" --sr="${serviceRealization}" -i bxoSrPkgInfoParsGet
+
+    echo "========= Making sure that all run-time bases are in place ========="
+    echo "========= marmeAcctsManage.py  --bxoId="${fbxoId}" --sr="${serviceRealization}" -i bxoSrPkgInfoMkdirs ========="        
+    marmeAcctsManage.py  --bxoId="${fbxoId}" --sr="${serviceRealization}" -i bxoSrPkgInfoMkdirs
 }
 
 function marmeIcmsPrep {
@@ -143,9 +100,6 @@ function marmeIcmsRunOnce {
 }
 
 function marmeFullSetup {
-    if ! platformInfoParsSet ; then
-	exit 1
-    fi
     bxoSrCurrentsSet
     marmeAcctsParsSet
 }

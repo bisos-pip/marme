@@ -1033,6 +1033,10 @@ def examples_bxoSrPkgInfoParsGet():
     cmndName = "bxoSrPkgInfoParsGet" ; cmndArgs = ""
     cps=cpsInit(); cmndParsCurBxoSr(cps); menuItem(verbosity='none')
 
+    cmndName = "bxoSrPkgInfoMkdirs" ; cmndArgs = ""
+    cps=cpsInit(); cmndParsCurBxoSr(cps);
+    menuItem(verbosity='none') ; menuItem(verbosity='little')
+    
     return
 
 ####+BEGIN: bx:icm:python:func :funcName "examples_controlProfileManage" :funcType "anyOrNone" :retType "bool" :deco "" :argsList ""
@@ -1344,6 +1348,85 @@ def FP_readTreeAtBaseDir_CmndOutput(
         FPsDir=fpBaseDir,
     )
 
+
+
+####+BEGIN: bx:icm:python:cmnd:classHead :cmndName "bxoSrPkgInfoMkdirs" :comment "" :parsMand "bxoId sr" :parsOpt "" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""
+"""
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  ICM-Cmnd       :: /bxoSrPkgInfoMkdirs/ parsMand=bxoId sr parsOpt= argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
+"""
+class bxoSrPkgInfoMkdirs(icm.Cmnd):
+    cmndParamsMandatory = [ 'bxoId', 'sr', ]
+    cmndParamsOptional = [ ]
+    cmndArgsLen = {'Min': 0, 'Max': 0,}
+
+    @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmnd(self,
+        interactive=False,        # Can also be called non-interactively
+        bxoId=None,         # or Cmnd-Input
+        sr=None,         # or Cmnd-Input
+    ):
+        cmndOutcome = self.getOpOutcome()
+        if interactive:
+            if not self.cmndLineValidate(outcome=cmndOutcome):
+                return cmndOutcome
+
+        callParamsDict = {'bxoId': bxoId, 'sr': sr, }
+        if not icm.cmndCallParamsValidate(callParamsDict, interactive, outcome=cmndOutcome):
+            return cmndOutcome
+        bxoId = callParamsDict['bxoId']
+        sr = callParamsDict['sr']
+
+####+END:
+
+        outcome = icm.subProc_bash("""\
+mkdir -p  {}"""
+                                   .format(controlBaseDirGet(bxoId=bxoId, sr=sr))
+        ).log()
+        if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
+
+        outcome = icm.subProc_bash("""\
+mkdir -p {}"""
+                                   .format(varBaseDirGet(bxoId=bxoId, sr=sr))
+        ).log()
+        if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
+
+        outcome = icm.subProc_bash("""\
+mkdir -p {}"""
+                                   .format(configBaseDirGet(bxoId=bxoId, sr=sr))
+        ).log()
+        if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
+        
+        outcome = icm.subProc_bash("""\
+mkdir -p {}"""
+                                   .format(tmpBaseDirGet(bxoId=bxoId, sr=sr))
+        ).log()
+        if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
+        
+        outcome = icm.subProc_bash("""\
+mkdir -p {}"""
+                                   .format(logBaseDirGet(bxoId=bxoId, sr=sr))
+        ).log()
+        if outcome.isProblematic(): return(icm.EH_badOutcome(outcome))
+        
+        
+        return cmndOutcome.set(
+            opError=icm.OpError.Success,
+            opResults=None,
+        )
+
+
+####+BEGIN: bx:icm:python:method :methodName "cmndDocStr" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList ""
+    """
+**  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Method-anyOrNone :: /cmndDocStr/ retType=bool argsList=nil deco=default  [[elisp:(org-cycle)][| ]]
+"""
+    @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmndDocStr(self):
+####+END:        
+        return """
+***** TODO [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Place holder for this commands doc string.
+"""
+
+			
 
 
 ####+BEGIN: bx:icm:python:cmnd:classHead :cmndName "bxoSrPkgInfoParsGet" :comment "" :parsMand "bxoId sr" :parsOpt "" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""

@@ -369,9 +369,12 @@ def deliveryEventRecord(
     ts = time.time()
     dateTag = datetime.fromtimestamp(ts).strftime('%y%m%d%H%M%S')
 
-    with open(trackDeliveryLogFile,'wb') as f:
+    if not msgId:
+        msgId="BlankMsgId"
+
+    with open(trackDeliveryLogFile,'a') as f:    
         f.write(
-            "{date}:{msgId}:{eventId}:{eventInfoStr}"
+            "{date}:{msgId}:{eventId}:{eventInfoStr}\n"
             .format(
                 date=dateTag,
                 msgId=msgId,

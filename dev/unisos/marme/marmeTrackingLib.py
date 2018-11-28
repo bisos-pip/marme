@@ -384,18 +384,18 @@ def deliveryEventRecord(
         )
 
 
-####+BEGIN: bx:icm:python:section :title "trackDelivery_ State Transition Events Interface"
+####+BEGIN: bx:icm:python:section :title "deliveryEvent_ State Transition Events Interface"
 """
-*  [[elisp:(beginning-of-buffer)][Top]] ############## [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *trackDelivery_ State Transition Interface*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] 
+*  [[elisp:(beginning-of-buffer)][Top]] ############## [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *deliveryEvent_ State Transition Interface*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] 
 """
 ####+END:
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_injectBefore" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_injectBefore" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_injectBefore/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_injectBefore/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_injectBefore(
+def deliveryEvent_injectBefore(
     bxoId,
     sr,
     msg,
@@ -414,12 +414,12 @@ def trackDelivery_injectBefore(
         eventInfoStr,
     )
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_injectAfter" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_injectAfter" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_injectAfter/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_injectAfter/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_injectAfter(
+def deliveryEvent_injectAfter(
     bxoId,
     sr,
     msg,
@@ -438,12 +438,12 @@ def trackDelivery_injectAfter(
         eventInfoStr,
     )
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_submissionConfirmed" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_submissionConfirmed" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_submissionConfirmed/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_submissionConfirmed/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_submissionConfirmed(
+def deliveryEvent_submissionConfirmed(
     bxoId,
     sr,
     msg,
@@ -463,12 +463,12 @@ def trackDelivery_submissionConfirmed(
     )
 
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_submissionFailed" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_submissionFailed" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_submissionFailed/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_submissionFailed/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_submissionFailed(
+def deliveryEvent_submissionFailed(
     bxoId,
     sr,
     msg,
@@ -489,12 +489,12 @@ def trackDelivery_submissionFailed(
 
 
     
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_tmpNdr" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_tmpNdr" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_tmpNdr/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_tmpNdr/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_tmpNdr(
+def deliveryEvent_tmpNdr(
     bxoId,
     sr,
     msg,
@@ -514,12 +514,12 @@ def trackDelivery_tmpNdr(
         eventInfoStr,
     )
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_permNdr" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_permNdr" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_permNdr/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_permNdr/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_permNdr(
+def deliveryEvent_permNdr(
     bxoId,
     sr,
     msg,
@@ -541,12 +541,12 @@ def trackDelivery_permNdr(
     
 
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_deliveryReport" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_deliveryReport" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_deliveryReport/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_deliveryReport/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_deliveryReport(
+def deliveryEvent_deliveryReport(
     bxoId,
     sr,
     msg,
@@ -567,12 +567,12 @@ def trackDelivery_deliveryReport(
     )
     
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_receiptNotification" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_receiptNotification" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_receiptNotification/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_receiptNotification/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_receiptNotification(
+def deliveryEvent_receiptNotification(
     bxoId,
     sr,
     msg,
@@ -593,12 +593,12 @@ def trackDelivery_receiptNotification(
     )
     
 
-####+BEGIN: bx:icm:python:func :funcName "trackDelivery_coRecipientNotified" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
+####+BEGIN: bx:icm:python:func :funcName "deliveryEvent_coRecipientNotified" :funcType "void" :retType "bool" :deco "default" :argsList "bxoId sr msg"
 """
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /trackDelivery_coRecipientNotified/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  Func-void      :: /deliveryEvent_coRecipientNotified/ retType=bool argsList=(bxoId sr msg) deco=default  [[elisp:(org-cycle)][| ]]
 """
 @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-def trackDelivery_coRecipientNotified(
+def deliveryEvent_coRecipientNotified(
     bxoId,
     sr,
     msg,
@@ -619,9 +619,9 @@ def trackDelivery_coRecipientNotified(
     )
     
 
-####+BEGIN: bx:icm:python:section :title "trackDelivery_ Locating Interface"
+####+BEGIN: bx:icm:python:section :title "deliveryEvent_ Locating Interface"
 """
-*  [[elisp:(beginning-of-buffer)][Top]] ############## [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *trackDelivery_ Locating Interface*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] 
+*  [[elisp:(beginning-of-buffer)][Top]] ############## [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *deliveryEvent_ Locating Interface*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] 
 """
 ####+END:
 

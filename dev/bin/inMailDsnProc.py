@@ -767,7 +767,7 @@ def dsnProcessAndRefileWithGivenActions(
                 )
 
             msgMoveToFolder("envNdrNoCoRecip", maildir, mbox, key, inMsg,)
-            marmeTrackingLib.trackDelivery_permNdr(
+            marmeTrackingLib.deliveryEvent_permNdr(
                 bxoId,
                 sr,
                 inMsg,
@@ -804,7 +804,7 @@ def dsnProcessAndRefileWithGivenActions(
                     dsnType,
                 )
             msgMoveToFolder("envNdrWithCoRecipNotified", maildir, mbox, key, inMsg,)            
-            marmeTrackingLib.trackDelivery_coRecipientNotified(
+            marmeTrackingLib.deliveryEvent_coRecipientNotified(
                 bxoId,
                 sr,
                 inMsg,
@@ -840,7 +840,7 @@ def dsnProcessAndRefileWithGivenActions(
                     dsnType,
                 )
             msgMoveToFolder("envTmpNdr", maildir, mbox, key, inMsg,)
-            marmeTrackingLib.trackDelivery_tmpNdr(
+            marmeTrackingLib.deliveryEvent_tmpNdr(
                 bxoId,
                 sr,
                 inMsg,

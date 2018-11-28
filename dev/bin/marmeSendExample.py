@@ -156,7 +156,7 @@ This message is then submitted for sending with sendCompleteMessage().cmnd(msg)
     ):
         return icm.EH_badOutcome()
 
-    marmeTrackingLib.trackDelivery_injectBefore(
+    marmeTrackingLib.deliveryEvent_injectBefore(
         bxoId,
         sr,
         msg,
@@ -169,7 +169,7 @@ This message is then submitted for sending with sendCompleteMessage().cmnd(msg)
         sr=sr,
     )
 
-    marmeTrackingLib.trackDelivery_injectAfter(
+    marmeTrackingLib.deliveryEvent_injectAfter(
         bxoId,
         sr,
         msg,

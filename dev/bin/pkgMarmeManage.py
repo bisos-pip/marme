@@ -564,6 +564,8 @@ def canon_linuxPkgInstall(
         return linuxPkgInstall_aptGet(pkgName, pkgVersion)
     elif distroName == "Redhat":
         return linuxPkgInstall_yum(pkgName, pkgVersion)
+    elif distroName == "CentOS Linux":
+        return linuxPkgInstall_yum(pkgName, pkgVersion)
     else:
         icm.EH_problem_info("Unsupported Distribution == {}".format(distroName))
         return

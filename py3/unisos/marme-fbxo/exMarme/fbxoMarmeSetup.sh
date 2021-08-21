@@ -1,0 +1,1 @@
+so/r3/sr/marme/dsnProc/adapt/admin/fbxoMarmeSetup.sh

@@ -1,0 +1,25 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./marme/py3/bin/dsnMsgPlugin.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./marme/py3/bin/dsnMsgPlugin.py
+--- ./marme/py3/bin/dsnMsgPlugin.py	(original)
++++ ./marme/py3/bin/dsnMsgPlugin.py	(refactored)
+@@ -15,12 +15,12 @@
+ """
+     print("Running dsnMsgProc With Full Msg Information")
+ 
+-    print(inMsg["From"])
++    print((inMsg["From"]))
+ 
+     if failedMsg:
+-        print(inMsg["From"])
++        print((inMsg["From"]))
+ 
+     if permFailedRecipients:
+-        print("permFailedRecipients={}".format(permFailedRecipients))
++        print(("permFailedRecipients={}".format(permFailedRecipients)))
+     
+     print(dsnType)

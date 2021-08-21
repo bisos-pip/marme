@@ -1,0 +1,27 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./marme/py3/unisos/marme/marmeSendLib.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./marme/py3/unisos/marme/marmeSendLib.py
+--- ./marme/py3/unisos/marme/marmeSendLib.py	(original)
++++ ./marme/py3/unisos/marme/marmeSendLib.py	(refactored)
+@@ -105,7 +105,7 @@
+ G.icmCmndsLibsAppend = __file__
+ # NOTYET DBLOCK Ends -- Rest of bisos libs follow;
+ 
+-import marmeAcctsLib
++from . import marmeAcctsLib
+ 
+ #import shlex
+ #import subprocess
+@@ -184,7 +184,7 @@
+         cmndArgsValid = cmndArgsSpec["0&-1"]
+         for each in effectiveArgsList:
+             if each in cmndArgsValid:
+-                print each
++                print(each)
+                 if interactive:
+                     #print( str( __doc__ ) )  # This is the Summary: from the top doc-string
+                     #version(interactive=True)

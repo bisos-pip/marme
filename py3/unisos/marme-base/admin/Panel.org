@@ -1,0 +1,158 @@
+* 
+####+BEGIN: bx:dblock:bnsm:top-of-menu "basic"
+*  [[elisp:(org-cycle)][|#Controls:|]]  [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]]  [[elisp:(bury-buffer)][Bury]]  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]]
+####+END:
+####+BEGIN: bx:dblock:bnsm:this-node "basic"
+*  This File :: *= /bisos/vcAuth/git/bxRepos/auth/bisos-pip/marme/dev/unisos/marme-base/admin/Panel.org =*
+####+END:
+####+BEGIN: bx:dblock:bnsm:see-related
+*  [[elisp:(org-cycle)][|#Bash:|]] (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(lsip-local-run-command-here "echo pushd dest")][echo pushd dir]] || [[elisp:(lsip-local-run-command-here "lsf")][lsf]] || [[elisp:(lsip-local-run-command-here "pwd")][pwd]] |
+####+END:
+####+BEGIN: bx:dblock:bnsm:agenda-list
+*  [[elisp:(org-cycle)][|#Marshal:|]]  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]] || [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]] |
+**  #See:  [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
+####+END:
+* 
+####+BEGIN: iim:panel:iimsListPanels :iimsList "./_iimsListXX"
+* ICM Collections :: [[BISOS]] || [[UNISOS]] || [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/blee/deviceAndUser/fullUsagePanel-en.org")][BxPlatform]] || [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/blee/bystarContinuum/fullUsagePanel-en.org")][BxSSC Groups]]
+* Pkg Panels :: [[elisp:(find-file "Panel.org")][Panel.org]]  ||
+####+END:
+* 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Sister Panels   ::  [[elisp:(find-file "./Panel.org")][MARME Pkg]] || [[elisp:(find-file "./installConfig.org")][Install And Config]] 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Sister Panels   ::  [[elisp:(find-file "./inComingMail.org")][Mail Retreival And Search]] || [[elisp:(find-file "./outGoingMail.org")][Marme Send]] || [[elisp:(find-file "./bx822-qmail.org")][Bx822 qmail]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Sister Panels   ::  [[elisp:(find-file "./dsnProc.org")][DSN Processing]] || [[elisp:(find-file "./runCmnds.org")][Marme Runs]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Related Panels  ::  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/bxServices/servicesManage/bxEmail/fullUsagePanel-en.org")][Mail Services Overview]] || 
+
+* /=======================================================================================================/
+* 
+*                                     /* DSNProc/Marme ICMs-Pkg Main Panel */
+*  
+*   =Mail Delivery Status Notifications (DSN) Processor= :: Retrieves DSNs and processes them   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]] 
+When desired, informs coRecipients of non-deliveries. Tracks a message's notifications.
+* 
+* /=======================================================================================================/
+* 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *MARME ICMs-Pkg Overview And Pointers* | ]] 
+** 
+** /ICMs Overview/         :: This Pkg consists of the following ICMs:
+** 
+** Configure Platform Parameters     ::  [[elisp:(lsip-local-run-command "bx-platformInfoManage.py")][bx-platformInfoManage.py]]      ||   [[elisp:(lsip-local-run-command "bx-platformInfoManage.py -i visit")][Content]] || [[elisp:(blee:file-goto-contents "pkgMarmeManage-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Install dependencies of ICMs-Pkgs ::  [[elisp:(lsip-local-run-command "pkgMarmeManage.py")][pkgMarmeManage.py]]             ||   [[elisp:(blee:visit-as-content-list "pkgMarmeManage.py")][Content]] || [[elisp:(blee:file-goto-contents "pkgMarmeManage-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Mange Current Selections          ::  [[elisp:(lsip-local-run-command "bx-currentsManage.py")][bx-currentsManage.py]]          ||   [[elisp:(blee:visit-as-content-list "bx-currentsManage.py")][Content]] || [[elisp:(blee:file-goto-contents "marmeAcctsManage-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+
+** Configure and Manage Mail Accts   ::  [[elisp:(lsip-local-run-command "marmeAcctsManage.py")][marmeAcctsManage.py]]           ||   [[elisp:(blee:visit-as-content-list "marmeAcctsManage.py")][Content]] || [[elisp:(blee:file-goto-contents "marmeAcctsManage-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** 
+** offlineimap based on inMailBase   ::  [[elisp:(lsip-local-run-command "inMailRetrieve.py")][inMailRetrieve.py]]             ||   [[elisp:(blee:visit-as-content-list "inMailRetrieve.py")][Content]] || [[elisp:(blee:file-goto-contents "inMailRetrieve-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** notmuch on inMail-Maildirs        ::  [[elisp:(lsip-local-run-command "inMailNotmuch.py")][inMailNotmuch.py]]              ||   [[elisp:(blee:visit-as-content-list "inMailNotmuch.py")][Content]] || [[elisp:(blee:file-goto-contents "inMailNotmuch-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Act on DSNs                       ::  [[elisp:(lsip-local-run-command "inMailDsnProc.py")][inMailDsnProc.py]]              ||   [[elisp:(blee:visit-as-content-list "inMailDsnProc.py")][Content]] || [[elisp:(blee:file-goto-contents "inMailDsnProc-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** MailSending - Based on msgOut     ::  [[elisp:(lsip-local-run-command "marmeSendIcm.py")][marmeSendIcm.py]]               ||   [[elisp:(blee:visit-as-content-list "marmeSendIcm.py")][Content]] || [[elisp:(blee:file-goto-contents "marmeSendIcm-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Mail Tracking                     ::  [[elisp:(lsip-local-run-command "marmeTrackingIcm.py")][marmeTrackingIcm.py]]           ||   [[elisp:(blee:visit-as-content-list "marmeTrackingIcm.py")][Content]] || [[elisp:(blee:file-goto-contents "marmeTrackingIcm-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Run Marme Retrieve And Proc       ::  [[elisp:(lsip-local-run-command "marmeRuns.py")][marmeRuns.py]]                  ||   [[elisp:(blee:visit-as-content-list "marmeRuns.py")][Content]] || [[elisp:(blee:file-goto-contents "marmeRuns-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** 
+** /COMMON Code/
+** Pkg Access to Common File Pars    ::  [[elisp:(lsip-local-run-command "icmsPkgLib.py")][icmsPkgLib.py]]          ||   [[elisp:(blee:visit-as-content-list "icmsPkgLib.py")][Content]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Pkg Access to Common File Pars    ::  [[elisp:(lsip-local-run-command "icmCmndsRun.py")][icmCmndsRun.py]]         ||   [[elisp:(blee:visit-as-content-list "icmCmndsRun.py")][Content]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Marme Mail Acct Facilities        ::  [[elisp:(lsip-local-run-command "marmeAcctsLib.py")][marmeAcctsLib.py]]       ||   [[elisp:(blee:visit-as-content-list "marmeAcctsLib.py")][Content]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Marme outgoing mail ICMs support  ::  [[elisp:(lsip-local-run-command "marmeSendLib.py")][marmeSendLib.py]]        ||   [[elisp:(blee:visit-as-content-list "marmeSendLib.py")][Content]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** Marme Mail tracking support       ::  [[elisp:(lsip-local-run-command "marmeTrackingLib.py")][marmeTrackingLib.py]]    ||   [[elisp:(blee:visit-as-content-list "marmeTrackingLib.py")][Content]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** 
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]] 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *MARMEE ICMs-Pkg Overview And Pointers -- qmail replacements* | ]]
+** 
+** /ICMs Overview/         :: This Pkg consists of the following ICMs:
+** 
+** Bx822-MSP Injection Preps -NOTYET ::  [[elisp:(lsip-local-run-command "bx822-qmail-inject.py")][bx822-qmail-inject.py]]  ||   [[elisp:(blee:visit-as-content-list "pkgManage.py")][Content]] || [[elisp:(blee:file-goto-contents "pkgManage-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** qmail-remote replacement  -NOTYET ::  [[elisp:(lsip-local-run-command "bx822-qmail-remote.py")][bx822-qmail-remote.py]]  ||   [[elisp:(blee:visit-as-content-list "marmeAcctsManage.py")][Content]] || [[elisp:(blee:file-goto-contents "marmeAcctsManage-Panel.org")][Panel]]   [[elisp:(org-show-subtree)][|=]]   [[elisp:(org-cycle)][| ]]
+** 
+** 
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]] 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *BX-MARMEE ICMs-Pkg Overview And Pointers* | ]] 
+** 
+** /ICMs Overview/         :: This Pkg consists of the following ICMs:
+** 
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]] 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *Marme ICM-Pkg Documentation And Pointers* | ]] 
+** 
+** MARME                       --  [[http://www.by-star.net/PLPC/180051][PLPC-180051]]  --  [[elisp:(find-file "/lcnt/lgpc/bystar/permanent/facilities/marmee")][Dired]]  --  [[elisp:(find-file "/lcnt/lgpc/bystar/permanent/facilities/marmee/Notes.org")][Notes.org]]
+** 
+** /ICMs Collaboration/   :: Picture comes here  [[elisp:(org-show-subtree)][|=]]  [[elisp:(org-cycle)][| ]] 
+** 
+** /AbstractionTerminology/:: mailAcctDefault, inMailAcct, outMailAcct  [[elisp:(org-show-subtree)][|=]]  [[elisp:(org-cycle)][| ]] 
+***  mailAcctName             :: Name for a mailAcct which can be inMailAcct or outMailAcct or both
+***  mailAcctCur              :: Currently Slected mailAcct (drives inMailAcct and outMailAcct)
+*** 
+***  outMailAcct              :: Name of outgoing mail account (smtpServer)
+***  outMailAcctControlerPars :: Control FPs for outgoing mail account owner (firstName, lastName)
+***  outMailAcctAccessPars    :: Control FPs for outgoing mail account (smtpServer)
+*** 
+***  inMailAcct               :: Name of incoming mail account (imapServer)
+
+***  inMailAcctAccessPars     :: Control FPs for incoming mail account (imapServer)
+***  inMailAcctControlerPars  :: Control FPs for incoming mail account owner (firstName, lastName)
+***  inMailAcctRetrievePars   :: Control FPs for incoming mail account -- What folders to bring and where to put them
+***  inMailAcctMboxesPath     :: Base directory of all inMailAcct Mailboxes
+***  inMailAcctInbox          :: (maildir) Base directory of inMailAcct Inbox
+***  inMailAcctMboxCur        :: (maildir) Base directory of currently selected inMailAcct Mbox
+*** 
+** 
+** /File Bases/   [[elisp:(org-show-subtree)][|=]]  [[elisp:(org-cycle)][| ]] 
+***  mailAcctsBaseDir         :: ../
+***  controlBaseDir           :: ../control/  -- common,inMail/mailAcctName,outMail/mailAcctName
+**** ../control/inMail/sa-20000/fp/access/
+**** ../control/inMail/sa-20000/fp/access
+***  configBaseDir            :: ../conf/     -- ../conf/mailAcctName/_configName 
+**** ../conf/sa-20000/_offlineimaprc  
+***  varBaseDir               :: ../var       -- ../var/inMail/mailAcctName/maildir, ../var/outMail/mailAcctName/{log,msgs}
+***  tmpBaseDir               :: ../tmp/.
+*** 
+***  inMailAcctAccessBase     :: join(controlBaseDir, "inMail", inMailAcct)
+***  inMailAcctMboxesBase     :: join(varBaseDir, "inMail", inMailAcct, "maildir")
+***  inMailAcctInbox          :: join(inMailAcctMboxesBase, "Inbox")
+*** 
+
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]] 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *ICMs-Pkg Evolution -- ToDos, Bugs, Ideas, Enhancements* | ]] 
+** 
+** DONE examples_marmeAcctsLibControls() should become examples_inMailAccountSelControls() and examples_outMailAccountSelControls() :MARME:
+** DONE ../var/inMail should become ../var/controlProfile/inMail      :MARME:
+** TODO RunMode Enum dryRun, debugRun (not runDebug) and fullRun	:ICM:
+** TODO Panel.org tobe considered PkgApp			      :Panel:
+** TODO import enum instead of iicm.enum				:ICM:
+** TODO out_ going to stdout, ann_ goes to stderr			:ICM:
+** DONE Make marmeAcctsLib.py sit on top of icmsPkg		      :MARME:
+** TODO Later NDR can result into Bad Recipient being cansidered coRecipient :MARME:
+*** For each msgId keep a list of bad recippients. For each coRecipientNotification consider 
+*** a msgId to list of badRecipients list. Ignore those bad recipients when notifying.
+** TODO notmuch config template file is being read from the wrong place. and kept on /var/config bad hierarchy :MARME:
+** TODO Control selections should be based on /controlProfile content in example menu :MARME:
+** 
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]] 
+*  [[elisp:(beginning-of-buffer)][|^]] #################### [[elisp:(delete-other-windows)][|1]]  
+*  [[elisp:(beginning-of-buffer)][|^]] #################### [[elisp:(delete-other-windows)][|1]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *= Panel Maintenance (Notes, Status, Evolution): =* | ]]  |
+**  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| /= Notes, Ideas, Tasks, Agenda: =/ | ]]  |
+*** TODO Some Idea
+**  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| /= Bug Reports, Development Team: =/ | ]]  |
+***  Bug Report                            ::   [[elisp:(find-file "")][Send debbug Email]]
+***  Developers                            ::   [[bbdb:Mohsen.*Banan]]  :: http://mohsen.1.banan.byname.net
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]] 
+*  [[elisp:(beginning-of-buffer)][|^]] ==================== [[elisp:(delete-other-windows)][|1]]       *= Common Footer Controls =*
+####+BEGIN: bx:dblock:org:parameters :types "agenda"
+#+STARTUP: lognotestate
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+####+END:
+
+
+####+BEGIN: bx:dblock:bnsm:end-of-menu "basic"
+*  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]
+####+END:
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *= Org-Mode And Emacs Specific Configurations: =* | ]]  /Local Vars/ |
+#+CATEGORY: bxPanel
+#+STARTUP: overview
+
+;; Local Variables:
+;; eval: (setq bufloc:selectedSubject "")
+;; End:

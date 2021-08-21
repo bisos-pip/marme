@@ -1,0 +1,158 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./marme/py3/bin/bx822-qmail-remote.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./marme/py3/bin/bx822-qmail-remote.py
+--- ./marme/py3/bin/bx822-qmail-remote.py	(original)
++++ ./marme/py3/bin/bx822-qmail-remote.py	(refactored)
+@@ -130,7 +130,7 @@
+ ####+END:
+ 
+     if iim.Interactivity().interactiveInvokation(interactive):
+-        print( str( __doc__ ) )  # This is the Summary: from the top doc-string
++        print(( str( __doc__ ) ))  # This is the Summary: from the top doc-string
+         print(moduleDescription)
+         return
+     else:
+@@ -152,7 +152,7 @@
+ """
+ 
+     if iim.Interactivity().interactiveInvokation(interactive):
+-        print( str( __doc__ ) )  # This is the Summary: from the top doc-string
++        print(( str( __doc__ ) ))  # This is the Summary: from the top doc-string
+         version(interactive=True)
+         print(moduleDescription)
+         return
+@@ -166,7 +166,7 @@
+ #@iim.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+ def version(interactive=False):
+     if iim.Interactivity().interactiveInvokation(interactive):
+-        print("* IIM-Version: {ver}".format(ver=str( __version__ )))
++        print(("* IIM-Version: {ver}".format(ver=str( __version__ ))))
+         return
+     else:
+         return(format(str(__version__)))
+@@ -386,7 +386,7 @@
+ 
+     msgOut.envelopeInfoHeaders(inMsg)
+ 
+-    print inMsg.as_string()    
++    print(inMsg.as_string())    
+ 
+     return
+ 
+@@ -496,11 +496,11 @@
+ 
+     argc = len(sys.argv)
+ 
+-    print argc
+-    print sys.argv
++    print(argc)
++    print(sys.argv)
+ 
+     if argc < 4:
+-        print "JJ"
++        print("JJ")
+         perm_usage()
+         return
+ 
+@@ -534,17 +534,17 @@
+     manager.setPluginPlaces(["qmailPlugins"])
+     manager.collectPlugins()
+ 
+-    print "=================="
++    print("==================")
+     
+     for plugin in manager.getAllPlugins():
+-        print plugin.name
+-
+-    print "=================="    
++        print(plugin.name)
++
++    print("==================")    
+     
+     #for plugin in manager.getAllPlugins():
+         #plugin.plugin_object.print_name()
+ 
+-    print "================== Now We invoke Them In A Particular Order ================"
++    print("================== Now We invoke Them In A Particular Order ================")
+ 
+     orderedList = list()
+     
+@@ -552,12 +552,12 @@
+     orderedList.append("Plugin 1")    
+         
+     for pluginName in orderedList:
+-        print pluginName
++        print(pluginName)
+         for plugin in manager.getAllPlugins():
+             if pluginName == plugin.name:
+                 msg = plugin.plugin_object.msgFilter(msg)
+ 
+-    print msg.as_string()  
++    print(msg.as_string())  
+ 
+ 
+ 
+@@ -566,10 +566,10 @@
+ """
+     
+ def G_mainOld():
+-    print sys.argv
++    print(sys.argv)
+     
+     for thisArg in sys.argv:
+-        print thisArg
++        print(thisArg)
+ 
+     msg = msgIn.getMsgFromStdin()
+ 
+@@ -583,17 +583,17 @@
+     manager.setPluginPlaces(["plugins"])
+     manager.collectPlugins()
+ 
+-    print "=================="
++    print("==================")
+     
+     for plugin in manager.getAllPlugins():
+-        print plugin.name
+-
+-    print "=================="    
++        print(plugin.name)
++
++    print("==================")    
+     
+     #for plugin in manager.getAllPlugins():
+         #plugin.plugin_object.print_name()
+ 
+-    print "================== Now We invoke Them In A Particular Order ================"
++    print("================== Now We invoke Them In A Particular Order ================")
+ 
+     orderedList = list()
+     
+@@ -601,12 +601,12 @@
+     orderedList.append("Plugin 1")    
+         
+     for pluginName in orderedList:
+-        print pluginName
++        print(pluginName)
+         for plugin in manager.getAllPlugins():
+             if pluginName == plugin.name:
+                 msg = plugin.plugin_object.msgFilter(msg)
+ 
+-    print msg.as_string()  
++    print(msg.as_string())  
+ 
+ 
+ 
+@@ -625,7 +625,7 @@
+ 
+ def iimCmndPartIncludes(interactive=False): return True
+ 
+-def iimLanguage(interactive=False): print "python"
++def iimLanguage(interactive=False): print("python")
+ 
+ def g_iimMain():
+     """ """

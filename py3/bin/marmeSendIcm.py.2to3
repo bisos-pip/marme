@@ -1,0 +1,18 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./marme/py3/bin/marmeSendIcm.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./marme/py3/bin/marmeSendIcm.py
+--- ./marme/py3/bin/marmeSendIcm.py	(original)
++++ ./marme/py3/bin/marmeSendIcm.py	(refactored)
+@@ -562,7 +562,7 @@
+         if msgOut.sendingMethodSet(msg, sendingMethod).isProblematic():
+             return msgOut.sendingMethodSet(msg, sendingMethod)
+ 
+-        print G.usageParams.runMode
++        print(G.usageParams.runMode)
+         
+         if msgOut.sendingRunControlSet(msg, G.usageParams.runMode).isProblematic():
+             return msgOut.sendingRunControlSet(msg, G.usageParams.runMode)

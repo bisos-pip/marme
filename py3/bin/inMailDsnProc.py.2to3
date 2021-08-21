@@ -1,0 +1,36 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./marme/py3/bin/inMailDsnProc.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./marme/py3/bin/inMailDsnProc.py
+--- ./marme/py3/bin/inMailDsnProc.py	(original)
++++ ./marme/py3/bin/inMailDsnProc.py	(refactored)
+@@ -175,7 +175,7 @@
+             argChoices.pop(0)
+             actions = argChoices
+         for each in actions:
+-            print each
++            print(each)
+             if interactive:
+                 #print( str( __doc__ ) )  # This is the Summary: from the top doc-string
+                 #version(interactive=True)
+@@ -496,7 +496,7 @@
+             #icm.ANN_here("thisArg={thisArg}".format(thisArg=msgProc))
+ 
+             #for msg in mbox:
+-            for key in mbox.iterkeys():
++            for key in mbox.keys():
+                 try:
+                     msg = mbox[key]
+                 except email.errors.MessageParseError:
+@@ -565,7 +565,7 @@
+ ):
+     """ """
+     for part in inMsg.walk():
+-        print part.get_content_type()
++        print(part.get_content_type())
+ 
+     return
+ 

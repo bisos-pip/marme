@@ -1,0 +1,44 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./marme/py3/bin/inMailNotmuch.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./marme/py3/bin/inMailNotmuch.py
+--- ./marme/py3/bin/inMailNotmuch.py	(original)
++++ ./marme/py3/bin/inMailNotmuch.py	(refactored)
+@@ -160,7 +160,7 @@
+             argChoices.pop(0)
+             actions = argChoices
+         for each in actions:
+-            print each
++            print(each)
+             if interactive:
+                 #print( str( __doc__ ) )  # This is the Summary: from the top doc-string
+                 #version(interactive=True)
+@@ -470,20 +470,20 @@
+         myName=self.myName()
+         thisOutcome = icm.OpOutcome(invokerName=myName)
+ 
+-        print G.icmInfo
++        print(G.icmInfo)
+ 
+         for eachArg in effectiveArgsList:
+             icm.ANN_here("{}".format(eachArg))
+ 
+-        print (icm.__file__)
+-        print sys.path
++        print((icm.__file__))
++        print(sys.path)
+ 
+         import imp
+-        print(imp.find_module('unisos/icm'))
++        print((imp.find_module('unisos/icm')))
+ 
+         @ucf.runOnceOnly
+         def echo(str):
+-            print str
++            print(str)
+             
+         echo("first")
+         echo("second")  # Should not run

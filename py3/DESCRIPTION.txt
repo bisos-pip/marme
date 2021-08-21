@@ -1,0 +1,4 @@
+MARME (Multi-Account Resident Mail Exchanger) Pkg is a library and a collection of
+ICMs for maintaining multiple mail sending and host resident mailboxes using offlineimap and notmuch.
+
+MARME is documented in: http://www.by-star.net/PLPC/180051

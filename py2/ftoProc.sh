@@ -13,13 +13,13 @@ __copying__="
 
 ####+BEGIN: bx:bsip:bash:seed-spec :types "seedFtoCommon.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedFtoCommon.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedFtoCommon.sh]] |
 "
 FILE="
-*  /This File/ :: /bisos/git/auth/bxRepos/bisos-pip/marme/dev/ftoProc.sh 
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos-pip/marme/py2/ftoProc.sh
 "
 if [ "${loadFiles}" == "" ] ; then
-    /bisos/core/bsip/bin/seedFtoCommon.sh -l $0 "$@" 
+    /bisos/core/bsip/bin/seedFtoCommon.sh -l $0 "$@"
     exit $?
 fi
 ####+END:
@@ -57,8 +57,10 @@ _CommentEnd_
 ####+BEGIN: bx:dblock:ploneProc:bash:nodesList :types ""
 # {{{ DBLOCK-nodesList
 nodesList="
-unisos
+unisos2
+dist
 bin
+unisos2.marme.egg-info
 "
 # }}} DBLOCK-nodesList
 ####+END:

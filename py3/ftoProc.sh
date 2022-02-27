@@ -57,10 +57,8 @@ _CommentEnd_
 ####+BEGIN: bx:dblock:ploneProc:bash:nodesList :types ""
 # {{{ DBLOCK-nodesList
 nodesList="
-dist
-unisos.marme.egg-info
-unisos
 bin
+unisos
 "
 # }}} DBLOCK-nodesList
 ####+END:
